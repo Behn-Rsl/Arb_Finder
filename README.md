@@ -1,5 +1,5 @@
 # Arb Finder
-
+(Creative name I know)
 Finds arbitrage across betting sites: sets of prices that disagree enough that
 backing every outcome pays more than it costs, whatever happens. Desktop UI,
 standard library only, no third-party packages.
@@ -35,7 +35,7 @@ calls a month, and one scan spends one call per region per market.
 Click any column to sort, type in **Filter** to narrow by team or bookmaker, and
 **Save as CSV** writes one row per bet.
 
-## The maths
+## How its made
 
 For decimal odds `p₁…pₙ` on the outcomes of one market, `S = Σ 1/pᵢ`. An
 arbitrage exists when `S < 1`, and the return on total stake is `1/S − 1`.
@@ -58,7 +58,7 @@ the true optimum — checked against exhaustive search over 8,000 random markets
 Because the figures shown are the real post-rounding outcome, an edge that
 rounding has eaten shows as a loss instead of a phantom win.
 
-## What it refuses to report
+## Some constraints
 
 - **Two-way prices in a three-way market.** A book quoting only Home/Away on a
   match that can be drawn looks like a huge edge and pays nothing on a draw.
@@ -78,7 +78,7 @@ rounding has eaten shows as a loss instead of a phantom win.
   a queue, so the window stays responsive.
 - `test_arb_core.py` — unit tests, including the exhaustive stake-allocation check.
 
-## Worth knowing before staking anything
+## Not a money printer 
 
 The screen shows candidates, not guarantees. Prices move between the feed's
 snapshot and your bet landing, so a 1% edge frequently disappears mid-execution
@@ -88,5 +88,6 @@ price suggests. Feeds also lag their own bookmakers. Check every price on the
 book's own site before you stake, keep the minimum return above your realistic
 slippage, and treat the flags as instructions rather than trivia.
 
-Arbitrage betting is legal in most places but breaches many bookmakers' terms.
+Arbitrage betting is legal in most places but breaches many bookmakers' terms. 
+Which can get you bet rate limited or even banned.
 Check the rules where you live, and the terms of any account you use.
